@@ -1,8 +1,6 @@
 var path = require ('path');
 var webpack = require ('webpack');
 var nodeModules = path.resolve(__dirname, 'node_modules');
-var pathToTsLoader = path.resolve(nodeModules, 'ts-loader/index.js');
-var pathToBabelLoader = path.resolve(nodeModules, 'babel-loader/lib/index.js');
 var pathToPolyfill = path.resolve(nodeModules, 'babel-polyfill/dist/polyfill.min.js');
 
 module.exports = {
@@ -18,15 +16,15 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: [/node_modules/],
-                loader: pathToBabelLoader,
+                loader: 'babel',
                 noParse: [pathToPolyfill]
             },
             {
                 test: /\.ts$/,
                 exclude: [/node_modules/],
                 loaders: [
-                    pathToBabelLoader,
-                    pathToTsLoader
+                    'babel',
+                    'ts'
                 ],
                 noParse: [pathToPolyfill]
             },
@@ -44,16 +42,8 @@ module.exports = {
         hot: false
     },
     resolve: {
-        root: [
-            nodeModules
-        ],
         extensions: [
             '.ts',  '.js', '', '.webpack.js', '.web.js'
         ]
-    },
-    resolveLoader: {
-        modulesDirectories: ['web_loaders', 'web_modules', 'node_loaders', nodeModules],
-        extensions: ['', '.webpack-loader.js', '.web-loader.js', '.loader.js', '.js'],
-        packageMains: ['webpackLoader', 'webLoader', 'loader', 'main']
     }
 };
