@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TsService } from './ts.service';
 
 @Component({
     selector: 'ts-component',
@@ -6,8 +7,7 @@ import { Component } from '@angular/core';
 })
 export class TsComponent {
     public title: string;
-    constructor (
-    ) {
+    constructor (public tsService: TsService) {
         this.title = 'typescript';
     }
 

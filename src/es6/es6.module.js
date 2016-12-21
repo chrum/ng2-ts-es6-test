@@ -1,25 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { TsComponent } from './ts.component';
-import { TsService } from './ts.service';
-
+import { Es6Component } from './es6.component';
 
 @NgModule({
     declarations: [
-        TsComponent
+        Es6Component
     ],
     imports: [
         CommonModule
     ],
     entryComponents: [
-        TsComponent
+        Es6Component
     ],
-    providers: [
-        TsService
-    ]
+    providers: [ ]
 })
-export class TsModule {
+export class Es6Module {
     constructor () {
 
     }
